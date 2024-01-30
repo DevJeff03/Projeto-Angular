@@ -1,0 +1,85 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.background-image {
+  background-image: url('https://img.freepik.com/fotos-gratis/hamburguer-de-bacon-com-saladas-e-copiagem_23-2148784487.jpg?t=st=1700435566~exp=1700436166~hmac=2633d1dc61fd76fc417aa4b7c3f676384341e0a41ade01fcdaa5c6809f2472c9'); /* Substitua pelo caminho da sua imagem */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.content {
+  text-align: flex-start;
+  margin-left: 50px;
+  margin-top: -150px;
+}
+
+.yellow-text {
+  color: yellow;
+  font-size: 3rem;
+  width: 50%;
+  line-height: 1;
+
+}
+
+.white-text {
+  margin-top: 50px;
+  width: 60%;
+  color: white;
+  font-size: 1.5em;
+}
+
+.button {
+  padding: 10px 20px;
+  text-decoration: none;
+  color: white;
+  background-color: green; /* Cor do botão, substitua pela cor desejada */
+  transition: background-color 0.3s ease;
+
+}
+
+.button {
+  margin-top: 40px;
+  margin-bottom: 10px;
+  display: block;
+  width: 200px;
+  height: 60px;
+  line-height: 40px;
+  font-size: 18px;
+  border: 2px solid #333;
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  transition: all .5s;
+
+}
+
+.button > p {
+  position: relative;
+  z-index: 2;
+}
+
+.button:after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #014305;
+  transition: all .5s;
+}
+
+.button:hover {
+  color: white;
+}
+
+.button:hover::after {
+  width: 100%;
+}

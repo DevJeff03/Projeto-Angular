@@ -1,0 +1,62 @@
+<app-navbar></app-navbar>
+
+<div class="categoria-buttons">
+  <button routerLink="/editar-itens">Edição</button>
+  <button routerLink="/excluir-itens">Excluir</button>
+  <p>---------------------------------------------------------------</p>
+  <button *ngFor="let categoria of categorias" (click)="categoriaSelecionada = categoria">
+    {{ categoria }}
+  </button>
+
+</div>
+
+<div class="container">
+  <div class="form-container">
+    <div *ngIf="modoEdicao">
+      <p>Edição Funcionando</p>
+    </div>
+    <form *ngIf="!modoEdicao" [formGroup]="produtoForm" (ngSubmit)="cadastrarProduto()">
+      <div *ngIf="categoriaSelecionada === 'hamburgueres'">
+        <h2 class="texto">Cadastrar novo hamburguer</h2>
+      </div>
+      <div class="texto" *ngIf="categoriaSelecionada === 'acompanhamentos'">
+        <h2>Cadastrar novo acompanhamento</h2>
+      </div>
+      <div class="texto" *ngIf="categoriaSelecionada === 'bebidas'">
+        <h2>Cadastrar nova bebida</h2>
+      </div>
+      <div class="texto" *ngIf="categoriaSelecionada === 'sobremesas'">
+        <h2>Cadastrar nova sobremesa</h2>
+      </div>
+      <div class="input-group">
+        <input class="input" id="nome" formControlName="nome" required>
+        <label class="label" for="nome">Nome</label>
+      </div>
+      <div class="input-group" *ngIf="categoriaSelecionada === 'hamburgueres'">
+  <input class="inputo" id="ingredientes" formControlName="ingredientes">
+  <label class="labelo" for="ingredientes">Ingredientes</label>
+</div>
+      <div class="input-group" *ngIf="categoriaSelecionada === 'acompanhamentos'">
+        <input class="inputo" id="descricao" formControlName="descricao">
+        <label class="labelo" for="descricao">Descrição</label>
+      </div>
+      <div class="input-group" *ngIf="categoriaSelecionada === 'bebidas'">
+        <input class="inputo" id="fabricante" formControlName="fabricante">
+        <label class="labelo" for="fabricante">Fabricante</label>
+      </div>
+      <div class="input-group" *ngIf="categoriaSelecionada === 'sobremesas'">
+        <input class="inputo" id="descricao" formControlName="descricao">
+        <label class="labelo" for="descricao">Descrição</label>
+      </div>
+      <div class="input-group">
+        <input class="input" id="preco" formControlName="preco" required>
+        <label class="label" for="preco">Preço</label>
+      </div>
+      <div class="input-group">
+        <input class="inputo" id="imagem_url" formControlName="imagem_url">
+        <label class="labelo" for="imagem_url">URL da Imagem</label>
+      </div>
+      <button class="submit" type="submit"><p>Cadastrar</p></button>
+    </form>
+  </div>
+

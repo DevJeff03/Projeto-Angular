@@ -1,0 +1,41 @@
+.menu-itens__container {
+  margin-top: 20px;
+  width: 90%;
+  display: flex;
+  margin-left: 15px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.menu-itens__container > ul {
+  list-style: none;
+
+}
+
+.menu-itens__container > ul > li {
+  text-decoration: none;
+  display: inline-block;
+  margin-left: 70px;
+  align-items: center;
+
+}
+
+.menu-itens__container > ul > li > button {
+  border: none;
+  background-color: unset;
+  color: #000;
+  font-size: 18px;
+  transition: color 0.3s linear;
+  text-align: center;
+  padding: 10px;
+
+}
+
+.menu-itens__container > ul > li > button:hover{
+  color: #03a9f4;
+  font-size: 19px;
+}
+
+

@@ -1,0 +1,30 @@
+<div class="container__menu-bar">
+  <div class="menu__logo">
+    <a routerLink="/cardapio"><img src="https://i.pinimg.com/originals/50/26/4e/50264e93aa486b4e54e140e6c8fb973a.png" alt=""></a>
+  </div>
+  <div class="menu__pages">
+    <ul>
+      <li><a routerLink="/cardapio">Menu</a></li>
+      <li><a routerLink="/about">Sobre Nós</a></li>
+    </ul>
+  </div>
+
+  <!-- Verifica se há um usuário autenticado -->
+  <ng-container *ngIf="authService.isAuthenticated(); else loginButton">
+    <!-- Se houver um usuário autenticado, exiba o botão de gerenciamento -->
+    <div class="menu__management">
+      <button class="button" routerLink="/gerenciador">Gerenciamento</button>
+      <button class="button" (click)="logout()">Logout</button>
+    </div>
+    <!-- Mostra a foto do perfil como um ícone -->
+    <div class="menu__profile" (click)="goToProfile()">
+    </div>
+  </ng-container>
+
+  <ng-template #loginButton>
+    <!-- Se nenhum usuário estiver autenticado, exiba o botão de login -->
+    <div class="menu__login">
+    </div>
+  </ng-template>
+</div>
+<hr>

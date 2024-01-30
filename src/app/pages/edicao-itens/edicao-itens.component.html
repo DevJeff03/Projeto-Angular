@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <div class="menu-itens__container">
+    <ul>
+      <li><button routerLink="/gerenciador">Adicionar</button></li>
+      <li><button routerLink="/excluir-itens">Excluir</button></li>
+    </ul>
+    <ul>
+      <li><button (click)="selecionarTipoProduto('hamburgueres')">Hamburgueres</button></li>
+      <li><button (click)="selecionarTipoProduto('acompanhamentos')">Acompanhamentos</button></li>
+      <li><button (click)="selecionarTipoProduto('sobremesas')">Sobremesas</button></li>
+      <li><button (click)="selecionarTipoProduto('bebidas')">Bebidas</button></li>
+    </ul>
+  </div>
+
+  <div class="card__container">
+    <div *ngFor="let produto of produtos" class="card">
+      <img [src]="produto.imagem_url" alt="{{produto.nome}}">
+      <div class="overlay">
+        <div class="content">
+          <input [(ngModel)]="produto.nome" placeholder="Nome do Produto">
+          <input *ngIf="tipoProdutoSelecionado === 'hamburgueres'" [(ngModel)]="produto.ingredientes" placeholder="Ingredientes">
+          <input *ngIf="tipoProdutoSelecionado === 'bebidas'" [(ngModel)]="produto.fabricante" placeholder="Fabricante">
+          <input *ngIf="tipoProdutoSelecionado === 'acompanhamentos' || tipoProdutoSelecionado === 'sobremesas'"
+                 [(ngModel)]="produto.descricao" placeholder="Descrição">
+
+          <input [(ngModel)]="produto.preco" placeholder="Preço">
+          <input [(ngModel)]="produto.imagem_url" placeholder="URL da Imagem">
+          <button (click)="salvarAlteracoes(produto)">Salvar Alterações</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

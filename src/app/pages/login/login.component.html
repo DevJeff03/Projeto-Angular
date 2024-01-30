@@ -1,0 +1,55 @@
+<div class="container" [ngClass]="{'change': isChange}">
+  <div class="metade-branco">
+    <div class="form-container">
+      <form *ngIf="!isChange" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <h2>Login</h2>
+        <div class="input-group">
+          <input class="input" type="text" id="username" required formControlName="email">
+          <label class="label" for="username">Email</label>
+        </div>
+        <div class="input-group">
+          <input class="input" type="password" id="password" required formControlName="senha">
+          <label class="label" for="password">Senha</label>
+        </div>
+        <button type="submit" class="btn">Login</button>
+      </form>
+
+      <form *ngIf="isChange" (ngSubmit)="onRegister()">
+        <h2>Cadastro</h2>
+        <div class="input-group">
+          <input class="input" type="text" id="name" required [(ngModel)]="registerForm.value.nome" name="nome">
+          <label class="label" for="name">Nome</label>
+        </div>
+        <div class="input-group">
+          <input class="input" type="text" id="endereco" required [(ngModel)]="registerForm.value.endereco" name="endereco">
+          <label class="label" for="endereco">Endereço</label>
+        </div>
+        <div class="input-group">
+          <input class="input" type="text" id="email" required [(ngModel)]="registerForm.value.email" name="email">
+          <label class="label" for="email">Email</label>
+        </div>
+        <div class="input-group">
+          <input class="input" type="tel" maxlength="15" id="telefone" required [(ngModel)]="registerForm.value.telefone" name="telefone">
+          <label class="label" for="telefone">Telefone</label>
+        </div>
+
+        <div class="input-group">
+          <input class="input" type="password" required [(ngModel)]="registerForm.value.senha" name="senha">
+          <label class="label" for="">Senha</label>
+        </div>
+        <button type="submit" class="btn">Submit</button>
+      </form>
+    </div>
+  </div>
+  <div class="metade-colorido">
+    <div class="form-lateral">
+      <a routerLink="/cardapio"><img src="https://i.pinimg.com/originals/50/26/4e/50264e93aa486b4e54e140e6c8fb973a.png" alt="" width="150px"></a>
+      <h2>{{ isChange ? 'Realize seu cadastro' : 'Bem vindo de volta!' }}</h2>
+      <p>
+        {{ isChange ? "Estamos muito animados por tê-lo aqui. Se você ainda não o fez, crie uma conta para ter acesso a ofertas exclusivas, recompensas e descontos." : "Bem vindo de volta! Estamos muito felizes por ter você aqui. É ótimo ver você de novo. Esperamos que você tenha passado um tempo seguro e agradável." }}
+      </p>
+      <h5>{{ isChange ? 'Já possui conta, faça seu login!' : 'Ainda não tem conta? Cadastre-se!' }}</h5>
+      <button type="button" class="btn-transition" (click)="toggleChange()">{{ isChange ? 'Entrar' : 'Cadastre-se' }}</button>
+    </div>
+  </div>
+</div>
